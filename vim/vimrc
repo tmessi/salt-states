@@ -1,0 +1,65 @@
+set guioptions=
+set bg=dark
+set nobackup
+set nocompatible
+set autoindent
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set showmode
+set nowrap
+set expandtab
+set smarttab
+set laststatus=2
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set mouse=a
+set hlsearch
+set incsearch
+set showmatch
+set numberwidth=3
+set t_Co=256
+set cursorline
+set relativenumber
+
+filetype plugin indent on
+let mapleader="'"
+
+set foldmethod=syntax
+let g:SuperTabDefaultCompletionType = "context"
+
+" Colors
+hi CursorLine cterm=underline
+hi Normal guifg=Green guibg=Black
+hi Folded ctermfg=59 ctermbg=NONE
+hi Pmenu guifg=green guibg=darkgray gui=NONE ctermfg=green ctermbg=darkgray cterm=NONE
+hi PmenuSel guifg=green guibg=black gui=NONE ctermfg=green ctermbg=black cterm=NONE
+hi DiffAdd term=reverse cterm=bold ctermbg=darkgreen ctermfg=black
+hi DiffChange term=reverse cterm=bold ctermbg=darkblue ctermfg=black
+hi DiffText term=reverse cterm=bold ctermbg=lightgray ctermfg=black
+hi DiffDelete term=reverse cterm=bold ctermbg=darkred ctermfg=black
+hi LineNr term=bold cterm=NONE ctermfg=gray ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" Fun with numbers
+au FocusLost * :set number
+au FocusGained * : set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+
+" Short cuts
+map <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <F2> :call NumberToggle()<cr>
+map <F3> :set wrap! wrap?<CR>
+map <F4> :set hlsearch! hlsearch?<CR>
+map <F5> :edit <CR>
+map <F6> :edit! <CR>
+map <F8> :set expandtab! expandtab?<CR>
+map <F9> :set paste! paste?<CR>
+map <F10> :set cursorline! cursorline?<CR>
+
