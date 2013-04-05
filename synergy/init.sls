@@ -1,6 +1,6 @@
 synergy:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:synergy ', 'synergy') }}
+    - name: {{ salt['pillar.get']('pkgs:synergy', 'synergy') }}
 
 {% if grains['os'] == 'Ubuntu' %}
 /etc/lightdm/lightdm.conf:
