@@ -3,3 +3,4 @@ include:
   - ssh.server
   - browsers.firefox
   - browsers.chrome
+  - synergy
