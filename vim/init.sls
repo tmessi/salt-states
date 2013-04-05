@@ -1,6 +1,5 @@
 vim:
-  pkg:
-    - installed
+  pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:vim', 'vim') }}
 
 /etc/vim/vimrc.local:
