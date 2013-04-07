@@ -7,5 +7,5 @@ spotify:
   pkgrepo.managed:
     - name: deb http://repository.spotify.com stable non-free
     - keyserver: keyserver.ubuntu.com
-    - keyid: 4E9CFF4E
+    - keyid: 94558F59
   {% endif %}
