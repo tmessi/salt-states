@@ -5,5 +5,7 @@ synergy:
 {% if grains['os'] == 'Ubuntu' %}
 /etc/lightdm/lightdm.conf:
   file.append:
-    - text: greeter-setup-script=/usr/bin/synergyc firefoot
+    - text: session-setup-script=/usr/bin/synergyc firefoot
+    - require:
+      - pkg: lightdm
 {% endif %}
