@@ -5,3 +5,5 @@ include:
   - browsers.chrome
   - synergy
   - spotify
+  - grive
+  - gorilla
