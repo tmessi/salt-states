@@ -2,5 +2,4 @@ base:
   '*':
     - core
   'brego':
-    - hal
-    - lightdm
+    - media

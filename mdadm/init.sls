@@ -1,0 +1,3 @@
+mdadm:
+  pkg:
+    - installed

@@ -1,0 +1,4 @@
+include:
+  - hal
+  - lightdm
+  - mdadm
