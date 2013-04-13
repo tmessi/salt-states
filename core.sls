@@ -7,3 +7,4 @@ include:
   - spotify
   - grive
   - gorilla
+  - mplayer
