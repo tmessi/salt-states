@@ -1,4 +1,4 @@
-/dev/md127:
+/dev/md0:
   raid.present:
     - opts:
       - level=1
@@ -14,4 +14,4 @@
     - opts:
       - defaults
     - require:
-      - raid: /dev/md127
+      - raid: /dev/md0
