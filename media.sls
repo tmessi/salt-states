@@ -3,3 +3,4 @@ include:
   - lightdm
   - mdadm
   - storage
+  - dropbox
