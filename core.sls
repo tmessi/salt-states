@@ -8,3 +8,4 @@ include:
   - grive
   - gorilla
   - mplayer
+  - aide
