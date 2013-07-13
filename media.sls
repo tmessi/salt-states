@@ -4,3 +4,4 @@ include:
   - mdadm
   - storage
   - dropbox
+  - gnome
