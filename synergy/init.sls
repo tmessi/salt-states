@@ -1,6 +1,6 @@
 {% if grains['os'] == 'Ubuntu' %}
 include:
-  - lightdm
+  - gnome
 {% endif %} 
 
 synergy:
@@ -10,8 +10,8 @@ synergy:
 {% if grains['os'] == 'Ubuntu' %}
 startup:
   file.append:
-    - name: /etc/lightdm/lightdm.conf
-    - text: session-setup-script=/usr/bin/synergyc firefoot
+    - name: /etc/gdm/PreSession/Default
+    - text: /usr/bin/synergyc firefoot
     - require:
-      - pkg: lightdm
+      - pkg: gnome
 {% endif %}
