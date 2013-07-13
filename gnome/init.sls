@@ -3,8 +3,8 @@ gnome:
     - pkgs:
       - gnome-shell
       - ubuntu-gnome-desktop
-      - require:
-        - debconf: gdm
+    - require:
+      - debconf: gdm
   pkgrepo.managed:
     - ppa: gnome3-team/gnome3
     - require_in:
