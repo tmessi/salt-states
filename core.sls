@@ -1,5 +1,6 @@
 include:
-  - vim
-  - ssh.server
-  - mplayer
   - aide
+  - htop
+  - mplayer
+  - ssh.server
+  - vim
