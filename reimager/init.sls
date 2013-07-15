@@ -1,6 +1,8 @@
-uck:
+tools:
   pkg.installed:
-    - name: uck
+    pkgs:
+      - squashfs-tools
+      - genisoimage
 
 ubuntu-livecd:
   file.managed:
