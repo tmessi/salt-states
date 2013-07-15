@@ -4,6 +4,7 @@ base:
   'brego':
     - desktop
     - media
+    - uck
   'felarof*':
     - desktop
     - gentoo

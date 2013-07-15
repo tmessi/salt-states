@@ -9,3 +9,9 @@ server_deps:
   file.managed:
     - source: http://media.steampowered.com/client/steamcmd_linux.tar.gz
     - source_hash: md5=09e3f75c1ab5a501945c8c8b10c7f50e
+    - mkedirs: True
+  cmd.wait:
+    - name: tar xfz /srv/steam/steamcmd_linux.tar.gz
+    - cwd: /srv/steam
+    - watch:
+      - file: /srv/steam/steamcmd_linux.tar.gz
