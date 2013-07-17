@@ -1,3 +1,3 @@
-packing-dev:
+packaging-dev:
   pkg.installed:
-    - name: packing-dev
+    - name: packaging-dev
