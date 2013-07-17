@@ -9,3 +9,4 @@ base:
     - gentoo
   'snowmane':
     - reimager
+    - devtools
