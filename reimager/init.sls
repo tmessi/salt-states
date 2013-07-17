@@ -1,6 +1,6 @@
 tools:
   pkg.installed:
-    pkgs:
+    - pkgs:
       - squashfs-tools
       - genisoimage
 
