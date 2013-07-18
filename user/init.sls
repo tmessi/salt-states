@@ -8,5 +8,5 @@
 
 groups:
   group.present:
-    names:
+    - names:
       {{ pillar['grps'] }}
