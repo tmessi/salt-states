@@ -3,6 +3,10 @@
     - uid: 1000
     - gid: 1000
     - groups: {{ pillar['grps'] }}
+    - require:
+      - group: groups
 
-vagrant:
-  user.absent
+groups:
+  group.present:
+    names:
+      {{ pillar['grps'] }}
