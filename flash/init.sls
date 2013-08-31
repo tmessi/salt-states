@@ -1,13 +1,13 @@
-{% if grains['os'] == 'Gentoo' %}
-include:
-  - flash.gentoo
-{% endif %}
-
 flash:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:flash', 'flash') }}
-    {% if grains['os'] == 'Gentoo' %}
-    - uses: '[32bit,64bit]'
-    - requires:
-      - portage_config: {{ salt['pillar.get']('pkgs:flash') }}
-    {% endif %}
+{% if grains['os'] == 'Gentoo' %}
+  portage_config.flags:
+    - license: 
+      - 'AdobeFlash-11.x'
+    - use:
+      - 32bit
+      - 64bit
+    - require_in:
+      - pkg: flash
+{% endif %}

@@ -7,6 +7,3 @@ base:
   'felarof*':
     - desktop
     - gentoo
-  'snowmane':
-    - reimager
-    - devtools
