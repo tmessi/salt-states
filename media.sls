@@ -4,3 +4,4 @@ include:
   - storage
   - dropbox
   - gnome
+  - xbmc
