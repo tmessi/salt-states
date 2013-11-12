@@ -13,7 +13,7 @@ vim:
 
 /etc/vim/vimrc.local:
   file.managed:
-    - source: salt://vim/vimrc
+    - source: salt://core/vim/vimrc
     - user: root
     - group: root
     - mode: 644
