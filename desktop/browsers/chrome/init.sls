@@ -1,5 +1,5 @@
 include:
-  - flash
+  - desktop.flash
 
 chrome:
   pkg.installed:

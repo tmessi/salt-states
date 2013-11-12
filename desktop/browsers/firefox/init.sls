@@ -1,5 +1,5 @@
 include:
-  - flash
+  - desktop.flash
 
 firefox:
   pkg.installed:
