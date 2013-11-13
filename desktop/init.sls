@@ -5,3 +5,4 @@ include:
   - desktop.spotify
   - desktop.grive
   - desktop.gorilla
+  - desktop.devtools
