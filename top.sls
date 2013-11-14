@@ -5,5 +5,6 @@ base:
     - desktop
     - media
   'felarof*':
-    - desktop
     - gentoo
+    - desktop
+    - devtools
