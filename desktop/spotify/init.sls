@@ -12,7 +12,7 @@ spotify:
   portage_config.flags:
     - name: {{ salt['pillar.get']('pkgs:spotify', 'spotify') }}
     - accept_keywords:
-      - '**'
+      - ~ARCH
     - require_in:
       - pkg: spotify
   {% endif %}
