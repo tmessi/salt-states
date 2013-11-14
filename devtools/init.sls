@@ -19,6 +19,8 @@ vagrant:
 virtualbox:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:virtualbox', 'virtualbox') }}
+    - require_in:
+      - pkg: vagrant
 {% if grains['os'] == 'Gentoo' %}
   portage_config.flags:
     - name: {{ salt['pillar.get']('pkgs:virtualbox', 'virtualbox') }}
