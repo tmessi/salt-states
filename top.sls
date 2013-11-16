@@ -10,3 +10,4 @@ base:
     - devtools
     - gentools
     - systemtools
+    - x11progs
