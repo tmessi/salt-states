@@ -8,3 +8,5 @@ base:
     - gentoo
     - desktop
     - devtools
+    - gentools
+    - systemtools
