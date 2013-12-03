@@ -1,6 +1,6 @@
 makeopts:
   makeconf.present:
-    - value: '-j{{ grains['num_cpus'] + 1 }} -l{{ grains['num_cpus'] }}.5'
+    - value: '-j{{ grains['num_cpus'] + 1 }} -l{{ grains['num_cpus'] * 1.5 }}'
 
 portage_elog_classes:
   makeconf.present:
@@ -16,7 +16,7 @@ portage_niceness:
 
 emerge_default_opts:
   makeconf.present:
-    - value: '--jobs --load-average={{ grains['num_cpus'] }}.5'
+    - value: '--jobs --load-average={{ grains['num_cpus'] * 1.5 }}'
 
 input_devices:
   makeconf.present:
