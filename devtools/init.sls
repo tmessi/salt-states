@@ -39,8 +39,19 @@ virtualbox-deps:
       - app-emulation/virtualbox-additions
       - app-emulation/virtualbox-extpack-oracle
       - app-emulation/virtualbox-modules
+      - dev-util/kbuild
     - accept_keywords:
       - ~ARCH
+    - require_in:
+      - pkg: virtualbox
+
+virutalbox-licenses:
+  portage_config.flags:
+    - names:
+      - app-emulation/virtualbox-additions
+      - app-emulation/virtualbox-extpack-oracle
+    - license:
+      - PUEL
     - require_in:
       - pkg: virtualbox
 {% endif %}
