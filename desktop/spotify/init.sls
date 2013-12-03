@@ -15,4 +15,15 @@ spotify:
       - ~ARCH
     - require_in:
       - pkg: spotify
+
+spotify-deps:
+  portage_config.flags:
+    - names:
+      - dev-qt/qtcore
+      - dev-qt/qtgui
+      - dev-qt/qtsql
+    - use:
+      - qt3support
+    - require_in:
+      pkg: spotify
   {% endif %}
