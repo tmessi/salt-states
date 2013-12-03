@@ -1,6 +1,22 @@
+{% if grains['os'] == 'Gentoo' %}
+spotify-deps:
+  portage_config.flags:
+    - names:
+      - dev-qt/qtcore
+      - dev-qt/qtgui
+      - dev-qt/qtsql
+      - dev-qt/qtopengl
+    - use:
+      - qt3support
+{% endif %}
+
 spotify:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:spotify', 'spotify') }}
+  {% if grains['os'] == 'Gentoo' %}
+    - require:
+      - portage_config: spotify-deps
+  {% endif %}
   {% if grains['os'] == 'Ubuntu' %}
   pkgrepo.managed:
     - name: deb http://repository.spotify.com stable non-free
@@ -15,15 +31,4 @@ spotify:
       - ~ARCH
     - require_in:
       - pkg: spotify
-
-spotify-deps:
-  portage_config.flags:
-    - names:
-      - dev-qt/qtcore
-      - dev-qt/qtgui
-      - dev-qt/qtsql
-    - use:
-      - qt3support
-    - require_in:
-      pkg: spotify
   {% endif %}
