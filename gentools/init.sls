@@ -6,6 +6,7 @@ gentools:
       - app-portage/elogv
       - app-portage/gentoolkit
       - app-portage/layman
+      - app-shells/bash-completion
 
 app-portage/layman:
   portage_config.flags:
