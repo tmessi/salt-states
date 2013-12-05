@@ -50,6 +50,10 @@ python_targets:
   makeconf.present:
     - value: 'python2_7'
 
+use_python:
+  makeconf.present:
+    - value: '2.7'
+
 ruby_targets:
   makeconf.present:
     - value: 'ruby18 ruby19'
