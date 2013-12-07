@@ -1,5 +1,5 @@
 include:
-  - ssh
+  - core.ssh
 
 sshd:
   service:
