@@ -64,3 +64,14 @@ python-tools:
       - {{ salt['pillar.get']('pkgs:pep8', 'pep8') }}
       - {{ salt['pillar.get']('pkgs:virtualenv', 'virtualenv') }}
       - {{ salt['pillar.get']('pkgs:jedi', 'jedi') }}
+      - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
+      - {{ salt['pillar.get']('pkgs:pip', 'pip') }}
+  {% if grains['os'] == 'Gentoo' %}
+  portage_config.flags:
+    - names:
+      - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
+    - accept_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: python-tools
+  {% endif %}
