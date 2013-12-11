@@ -25,6 +25,7 @@ systemtools:
       - {{ salt['pillar.get']('pkgs:lsscsi', 'lsscsi') }}
       - {{ salt['pillar.get']('pkgs:iotop', 'iotop') }}
       - {{ salt['pillar.get']('pkgs:lsof', 'lsof') }}
+      - {{ salt['pillar.get']('pkgs:ack', 'ack') }}
 
 fstools:
   pkg.installed:
