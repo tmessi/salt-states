@@ -59,7 +59,6 @@ virutalbox-licenses:
 python-tools:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:pylint', 'pylint') }}
       - {{ salt['pillar.get']('pkgs:flake8', 'flake8') }}
       - {{ salt['pillar.get']('pkgs:pep8', 'pep8') }}
       - {{ salt['pillar.get']('pkgs:virtualenv', 'virtualenv') }}
@@ -75,3 +74,9 @@ python-tools:
     - require_in:
       - pkg: python-tools
   {% endif %}
+  pip.installed:
+    - names:
+      - django
+      - pylint
+    - require:
+      - pkg: python-tools
