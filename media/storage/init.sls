@@ -8,7 +8,7 @@
       - {{ device}}
       {% endfor %}
 
-{{ raid['mount_point' }}:
+{{ raid['mount_point'] }}:
   mount.mounted:
     - device: {{ name }}
     - fstype: {{ raid['fstype'] }}
