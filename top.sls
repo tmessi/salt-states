@@ -1,6 +1,8 @@
 base:
   '*':
     - core
+    # shadowfax-chc/users-formula
+    - users
   'brego':
     - desktop
     - media
