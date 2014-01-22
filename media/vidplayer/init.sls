@@ -16,3 +16,5 @@ include:
     - target: /etc/nginx/sites-available/vidplayer.conf
     - require:
       - file: /etc/nginx/sites-available/vidplayer.conf
+    - watch_in:
+      - service: nginx
