@@ -1,15 +1,19 @@
-/dev/md127:
+{% for name, raid in pillar.get('storage', {} %}
+{{ name }}:
   raid.present:
     - opts:
-      - level=1
-      - raid-devices=2
-      - /dev/sdc
-      - /dev/sdd
+      - level={{ raid['level' }}
+      - raid-devices={{ raid['devices']|count }}
+      {% for device in raid['devices'] %}
+      - {{ device}}
+      {% endfor %}
 
-/media/storage:
+{{ raid['mount_point' }}:
   mount.mounted:
-    - device: /dev/md127
-    - fstype: xfs
+    - device: {{ name }}
+    - fstype: {{ raid['fstype'] }}
     - mkmnt: True
     - opts:
-      - defaults
+      {% for opt in raid['mount_opts'] %}
+      - {{ opt }}
+      {% endfor %}
