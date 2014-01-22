@@ -1,4 +1,4 @@
-{% for name, raid in pillar.get('storage', {} %}
+{% for name, raid in pillar.get('storage', {})|dictsort %}
 {{ name }}:
   raid.present:
     - opts:
@@ -17,3 +17,6 @@
       {% for opt in raid['mount_opts'] %}
       - {{ opt }}
       {% endfor %}
+    - require:
+      - raid: {{ name }}
+{% endfor %}
