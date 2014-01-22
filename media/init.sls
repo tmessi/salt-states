@@ -4,3 +4,4 @@ include:
   - media.storage
   - media.dropbox
   - media.gnome
+  - media.vidplayer
