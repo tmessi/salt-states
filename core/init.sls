@@ -4,4 +4,3 @@ include:
   - core.mplayer
   - core.ssh.server
   - core.vim
-  - core.user
