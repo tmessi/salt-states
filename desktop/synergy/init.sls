@@ -1,6 +1,6 @@
 {% if grains['os'] == 'Ubuntu' %}
 include:
-  - gnome
+  - media.gnome
 {% endif %} 
 
 synergy:
