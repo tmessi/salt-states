@@ -2,7 +2,7 @@
 {{ name }}:
   raid.present:
     - opts:
-      - level={{ raid['level' }}
+      - level={{ raid['level'] }}
       - raid-devices={{ raid['devices']|count }}
       {% for device in raid['devices'] %}
       - {{ device}}
