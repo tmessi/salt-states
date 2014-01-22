@@ -3,8 +3,8 @@
     - opts:
       - level=1
       - raid-devices=2
-      - /dev/sdc1
-      - /dev/sdd1
+      - /dev/sdc
+      - /dev/sdd
 
 /media/storage:
   mount.mounted:
