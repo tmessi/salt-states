@@ -18,3 +18,72 @@ include:
       - file: /etc/nginx/sites-available/vidplayer.conf
     - watch_in:
       - service: nginx
+
+bitbucket.org:
+  ss_known_hosts.present:
+    - user: vidplayer
+    - fingerprint: 97:8c:1b:f2:6f:14:6b:5c:3b:ec:aa:46:46:74:7c:40
+    - require:
+      - user: vidplayer_user
+
+vidplayer_dir:
+  file.directory:
+    - names:
+      - /srv/vidplayer/project
+    - user: vidplayer
+    - mode: 755
+    - require:
+      - user: vidplayer_user
+
+vidplayer_source:
+  git.latest:
+    - name: ssh://git@bitbucket.org/tmessier/vidplayer
+    - target: /srv/vidplayer/project/vidplayer
+    - user: vidplayer
+    - rev: {{ pillar.get('rev', 'master') }}
+    - require:
+      - file: vidplayer_dirs
+      - ssh_known_hosts: bitbucket.org
+
+/srv/vidplayer/env:
+  virtualenv.managed:
+    - requirements: /srv/vidplayer/project/vidplayer/requirements.txt
+    - user: vidplayer
+
+/srv/vidplayer/startvidplayer.sh:
+  file.managed:
+    - source: salt://media/vidplayer/startvidplayer.sh
+    - template: jinja
+    - user: vidplayer
+    - group: www-data
+    - mode: 755
+
+/srv/vidplayer/uwsgi.ini:
+  file.managed:
+    - source: salt://media/vidplayer/uwsgi.ini
+    - template: jinja
+    - user: vidplayer
+    - group: www-data
+    - mode: 644
+
+/etc/init/vidplayer.conf:
+  file.managed:
+    - source: salt://media/vidplayer/vidplayer.upstart
+    - template: jinja
+    - require:
+      - file: /srv/vidplayer/startvidplayer.sh
+
+/etc/init.d/vidplayer:
+  file.symlink:
+    - target: /lib/init/upstart-job
+    - require:
+      - file: /etc/init/vidplayer.conf
+
+vidplayer:
+  service.running:
+    - enable: True
+    - require:
+      -  file: /etc/init.d/vidplayer
+    - watch:
+      - file: /srv/vidplayer/uwsgi.ini
+      - git: vidplayer_source
