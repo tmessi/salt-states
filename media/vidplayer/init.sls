@@ -26,6 +26,10 @@ bitbucket.org:
     - require:
       - user: vidplayer_user
 
+python-dev:
+  pkg:
+    - installed
+
 virtualenv:
   pkg.installed:
     - name: python-virtualenv
@@ -55,6 +59,7 @@ vidplayer_source:
     - user: vidplayer
     - require:
       - pkg: virtualenv
+      - pkg: python-dev
       - git: vidplayer_source
 
 /srv/vidplayer/startvidplayer.sh:
