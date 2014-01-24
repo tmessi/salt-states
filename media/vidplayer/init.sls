@@ -92,7 +92,7 @@ vidplayer_source:
       - file: /etc/init/vidplayer.conf
 
 collect_static:
-  cmd.watch:
+  cmd.wait:
     - name: 'source /srv/vidplayer/env/bin/activate && python manage.py collectstatic --link --noinput'
     - user: vidplayer
     - cwd: /srv/vidplayer/project/vidplayer
