@@ -20,7 +20,7 @@ include:
       - service: nginx
 
 bitbucket.org:
-  ss_known_hosts.present:
+  ssh_known_hosts.present:
     - user: vidplayer
     - fingerprint: 97:8c:1b:f2:6f:14:6b:5c:3b:ec:aa:46:46:74:7c:40
     - require:
