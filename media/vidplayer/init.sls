@@ -42,7 +42,7 @@ vidplayer_source:
     - user: vidplayer
     - rev: {{ pillar.get('rev', 'master') }}
     - require:
-      - file: vidplayer_dirs
+      - file: vidplayer_dir
       - ssh_known_hosts: bitbucket.org
 
 /srv/vidplayer/env:
