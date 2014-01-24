@@ -91,6 +91,16 @@ vidplayer_source:
     - require:
       - file: /etc/init/vidplayer.conf
 
+collect_static:
+  cmd.watch:
+    - name: 'source /srv/vidplayer/env/bin/activate && python manage.py collectstatic --link --noinput'
+    - user: vidplayer
+    - cwd: /srv/vidplayer/project/vidplayer
+    - require:
+      - virtualenv: /srv/vidplayer/env
+    - watch:
+      - git: vidplayer_source
+
 vidplayer:
   service.running:
     - enable: True
