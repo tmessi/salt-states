@@ -22,6 +22,7 @@ chrome_ppa:
 {% elif grains['os']  == 'Gentoo' %}
 chrome_pkgfiles:
   portage_config.flags:
+    - name: {{ salt['pillar.get']('pkgs:chrome', 'google-chrome-stable') }}
     - accpet_keywords:
       - ~ARCH
     - license:
