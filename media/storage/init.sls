@@ -10,7 +10,7 @@
 
 {{ raid['mount_point'] }}:
   mount.mounted:
-    - device: {{ mount_dev }}
+    - device: {{ raid['mount_dev'] }}
     - fstype: {{ raid['fstype'] }}
     - mkmnt: True
     - opts:
