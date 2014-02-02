@@ -1,7 +1,7 @@
 hal:
   pkg.installed:
     - name: hal
-
-hal-info:
-  pkg.installed:
-    - name: hal-info
+  pkgrepo.managed:
+    - ppa: mjblenner/ppa-hal
+    - require_in:
+      - pkg: hal
