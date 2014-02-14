@@ -3,18 +3,19 @@ base:
     - core
     # shadowfax-chc/users-formula
     - users
+  'os:Gentoo':
+    - match: grain
+    - gentoo
   'brego':
     - desktop
     - media
   'felarof*':
-    - gentoo
     - desktop
     - devtools
     - gentools
     - systemtools
     - x11progs
   'snowmane*':
-    - gentoo
     - desktop
     - devtools
     - gentools
