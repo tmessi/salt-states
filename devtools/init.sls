@@ -19,6 +19,7 @@ vagrant-deps:
   portage_config.flags:
     - names:
       - dev-ruby/ffi
+      - virtual/ruby-ffi
       - virtual/ruby
       - dev-ruby/log4r
       - dev-python/py
