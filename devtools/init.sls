@@ -20,7 +20,6 @@ vagrant-deps:
     - names:
       - dev-ruby/ffi
       - virtual/ruby-ffi
-      - virtual/ruby
       - dev-ruby/log4r
       - dev-python/py
       - dev-ruby/yard
