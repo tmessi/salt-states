@@ -1,3 +1,8 @@
+{% if grains['os'] == 'Gentoo' %}
+include:
+  - gentools
+{% endif %}
+
 vcs:
   pkg.installed:
     - names:
@@ -8,6 +13,8 @@ vagrant:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:vagrant', 'vagrant') }}
   {% if grains['os'] == 'Gentoo' %}
+    - require:
+      - layman: shadowfax-overlay
   portage_config.flags:
     - name: {{ salt['pillar.get']('pkgs:vagrant', 'vagrant') }}
     - accept_keywords:

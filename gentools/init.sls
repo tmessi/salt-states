@@ -24,3 +24,17 @@ app-portage/eix:
       - strong-optimization
     - require_in:
       - pkg: gentools
+
+/etc/layman/layman.cfg:
+  file.managed:
+    - source: salt://gentools/layman.cfg
+    - user: root
+    - group: root
+    - mode: 644
+    - require:
+      - pkg: gentools
+
+shadowfax-overlay:
+  layman.present:
+    - require:
+      - file: /etc/layman/layman.cfg
