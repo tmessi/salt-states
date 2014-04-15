@@ -95,3 +95,7 @@ python-tools:
       - pylint
     - require:
       - pkg: python-tools
+
+go:
+  pkg:
+    - installed
