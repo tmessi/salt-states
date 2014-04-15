@@ -26,6 +26,7 @@ systemtools:
       - {{ salt['pillar.get']('pkgs:iotop', 'iotop') }}
       - {{ salt['pillar.get']('pkgs:lsof', 'lsof') }}
       - {{ salt['pillar.get']('pkgs:ack', 'ack') }}
+      - {{ salt['pillar.get']('pkgs:dmidecode', 'dmidecode') }}
 
 fstools:
   pkg.installed:
