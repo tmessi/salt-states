@@ -97,5 +97,6 @@ python-tools:
       - pkg: python-tools
 
 go:
-  pkg:
-    - installed
+  pkg.installed:
+    - names:
+      - {{ salt['pillar.get']('pkgs:go', 'go') }}
