@@ -5,11 +5,13 @@ chrome:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:chrome', 'google-chrome-stable') }}
 
+{% if 'snowmane' != grains['id'] %}
 chromium:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:chromium', 'chromium') }}
     - require:
       - pkg: flash
+{% endif %}
 
 {% if grains['os'] == 'Ubuntu' %}
 chrome_ppa:

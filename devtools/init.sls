@@ -102,3 +102,8 @@ python-tools:
       - pylint
     - require:
       - pkg: python-tools
+
+go:
+  pkg.installed:
+    - names:
+      - {{ salt['pillar.get']('pkgs:go', 'go') }}
