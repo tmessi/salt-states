@@ -21,21 +21,6 @@ vagrant:
       - ~ARCH
     - require_in:
       - pkg: vagrant
-
-vagrant-deps:
-  portage_config.flags:
-    - names:
-      - dev-ruby/ffi
-      - virtual/ruby-ffi
-      - dev-ruby/log4r
-      - dev-python/py
-      - dev-ruby/yard
-      - dev-ruby/erubis
-      - dev-ruby/rake-compiler
-    - accept_keywords:
-      - ~ARCH
-    - require_in:
-      - pkg: vagrant
   {% endif %}
 
 virtualbox:
