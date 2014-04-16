@@ -12,7 +12,7 @@ spotify-deps:
 
 spotify:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:spotify', 'spotify') }}
+    - name: {{ salt['pillar.get']('pkgs:spotify', 'spotify-client') }}
   {% if grains['os'] == 'Gentoo' %}
     - require:
       - portage_config: spotify-deps
@@ -26,7 +26,7 @@ spotify:
       - pkg: spotify
   {% elif grains['os'] == 'Gentoo' %}
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:spotify', 'spotify') }}
+    - name: {{ salt['pillar.get']('pkgs:spotify', 'spotify-client') }}
     - accept_keywords:
       - ~ARCH
     - require_in:

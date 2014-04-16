@@ -1,9 +1,9 @@
 flash:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:flash', 'flash') }}
+    - name: {{ salt['pillar.get']('pkgs:flash', 'flash-installer') }}
 {% if grains['os'] == 'Gentoo' %}
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:flash', 'flash') }}
+    - name: {{ salt['pillar.get']('pkgs:flash', 'flash-installer') }}
     - license: 
       - 'AdobeFlash-11.x'
     - use:

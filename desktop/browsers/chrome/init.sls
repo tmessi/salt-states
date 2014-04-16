@@ -8,7 +8,7 @@ chrome:
 {% if 'snowmane' != grains['id'] %}
 chromium:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:chromium', 'chromium') }}
+    - name: {{ salt['pillar.get']('pkgs:chromium', 'chromium-browser') }}
     - require:
       - pkg: flash
 {% endif %}

@@ -4,6 +4,6 @@ include:
 sshd:
   service:
     - running
-    - name: {{ salt['pillar.get']('services:sshd', 'sshd') }}
+    - name: {{ salt['pillar.get']('services:sshd', 'ssh') }}
   require:
     - pkg: openssh

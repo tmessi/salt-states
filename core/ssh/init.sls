@@ -1,6 +1,6 @@
 openssh:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:openssh', 'openssh') }}
+    - name: {{ salt['pillar.get']('pkgs:openssh', 'openssh-server') }}
 
 sshguard:
   pkg.installed:
