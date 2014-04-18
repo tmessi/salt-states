@@ -5,3 +5,4 @@ include:
   - media.dropbox
   - media.gnome
   - media.vidplayer
+  - media.solaar
