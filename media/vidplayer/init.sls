@@ -109,3 +109,7 @@ vidplayer:
     - watch:
       - file: /srv/vidplayer/uwsgi.ini
       - git: vidplayer_source
+
+nopip-updater:
+  pkg.installed:
+    - name: {{ salt['pillar.get']('pkg:noip-updater', 'noip2') }}
