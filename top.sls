@@ -15,6 +15,7 @@ base:
     - gentools
     - systemtools
     - x11progs
+    - noip
   'snowmane*':
     - desktop
     - devtools
