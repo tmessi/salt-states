@@ -91,11 +91,27 @@ vidplayer_source:
     - require:
       - file: /etc/init/vidplayer.conf
 
-collect_static:
-  cmd.wait:
-    - name: 'source /srv/vidplayer/env/bin/activate && python manage.py collectstatic --link --noinput'
+collectstatic:
+  module.wait:
+    - name: django.collectstatic
+    - settings_modules: vidplayer.settings
+    - bin_env: /srv/vidplayer/env/
+    - pythonpath: /srv/vidplayer/project/vidplayer
+    - link: True
     - user: vidplayer
-    - cwd: /srv/vidplayer/project/vidplayer
+    - require:
+      - virtualenv: /srv/vidplayer/env
+    - watch:
+      - git: vidplayer_source
+
+sync_migrate_db:
+  module.wait:
+    - name: django.syncdb
+    - settings_modules: vidplayer.settings
+    - bin_env: /srv/vidplayer/env/
+    - pythonpath: /srv/vidplayer/project/vidplayer
+    - migrate: True
+    - user: vidplayer
     - require:
       - virtualenv: /srv/vidplayer/env
     - watch:
