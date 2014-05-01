@@ -94,7 +94,7 @@ vidplayer_source:
 collectstatic:
   module.wait:
     - name: django.collectstatic
-    - settings_modules: vidplayer.settings
+    - settings_module: vidplayer.settings
     - bin_env: /srv/vidplayer/env/
     - pythonpath: /srv/vidplayer/project/vidplayer
     - link: True
@@ -107,7 +107,7 @@ collectstatic:
 sync_migrate_db:
   module.wait:
     - name: django.syncdb
-    - settings_modules: vidplayer.settings
+    - settings_module: vidplayer.settings
     - bin_env: /srv/vidplayer/env/
     - pythonpath: /srv/vidplayer/project/vidplayer
     - migrate: True
