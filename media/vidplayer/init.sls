@@ -62,6 +62,12 @@ vidplayer_source:
       - pkg: python-dev
       - git: vidplayer_source
 
+/srv/vidplayer/vidplayer_env:
+  file.managed:
+    - source: salt://media/vidplayer/vidplayer_env
+    - template: jinja
+    - user: vidplayer
+
 /srv/vidplayer/startvidplayer.sh:
   file.managed:
     - source: salt://media/vidplayer/startvidplayer.sh
@@ -96,6 +102,7 @@ collectstatic:
     - name: django.collectstatic
     - settings_module: vidplayer.settings
     - bin_env: /srv/vidplayer/env/
+    - env: {{ salt['pillar.get']('vidplayer:env') }}
     - pythonpath: /srv/vidplayer/project/vidplayer
     - link: True
     - user: vidplayer
@@ -109,6 +116,7 @@ sync_migrate_db:
     - name: django.syncdb
     - settings_module: vidplayer.settings
     - bin_env: /srv/vidplayer/env/
+    - env: {{ salt['pillar.get']('vidplayer:env') }}
     - pythonpath: /srv/vidplayer/project/vidplayer
     - migrate: True
     - user: vidplayer
@@ -124,4 +132,5 @@ vidplayer:
       -  file: /etc/init.d/vidplayer
     - watch:
       - file: /srv/vidplayer/uwsgi.ini
+      - file: /srv/vidplayer/vidplayer_env
       - git: vidplayer_source

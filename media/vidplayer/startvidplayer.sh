@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+source /srv/vidplayer/vidplayer_env
+
 LOGFILE=/srv/vidplayer/uwsgi.log
 LOGDIR=$(dirname $LOGFILE)
 

@@ -1,0 +1,4 @@
+#!/bin/bash
+{% for key, val in salt['pillar.get']('vidplayer:env')|dictsort -%}
+export {{ key }}='{{ val }}'
+{% endfor -%}
