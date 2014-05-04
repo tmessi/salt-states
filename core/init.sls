@@ -1,4 +1,5 @@
 include:
+  - core.salt
   - core.aide
   - core.htop
   - core.mplayer
