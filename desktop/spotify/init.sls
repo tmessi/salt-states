@@ -20,6 +20,7 @@ spotify:
   {% if grains['os'] == 'Ubuntu' %}
   pkgrepo.managed:
     - name: deb http://repository.spotify.com stable non-free
+    - file: /etc/apt/sources.list.d/spotify.list
     - keyserver: keyserver.ubuntu.com
     - keyid: 94558F59
     - require_in:
