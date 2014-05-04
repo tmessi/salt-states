@@ -22,5 +22,5 @@ install_pepperflash:
   cmd.wait:
     - name: update-pepperflashplugin-nonfree --install
     - watch:
-      - pkg: pepperflashplugin
+      - pkg: pepperflash
 {% endif %}
