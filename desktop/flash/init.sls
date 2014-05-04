@@ -13,7 +13,7 @@ flash:
       - pkg: flash
 {% endif %}
 
-{% if grains['os'] == Ubuntu' %}
+{% if grains['os'] == 'Ubuntu' %}
 pepperflash:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:pepperflash', 'pepperflashplugin-nonfree') }}
