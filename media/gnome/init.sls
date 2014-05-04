@@ -15,3 +15,8 @@ gdm:
     - name: gdm
     - data:
         'shared/default-x-display-manager': {'type': 'string', 'value': 'gdm'}
+
+/usr/share/themes/Adwaita/metacity-1/metacity-theme-3.xml:
+  file.patch:
+    - source: salt://media/gnome/metacity-theme-3.xml.patch
+    - hash: md5=4346533324e2f7e95a0d3cbffe78e56f
