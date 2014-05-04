@@ -1,5 +1,5 @@
 salt-minion:
-  pkg.lastest:
+  pkg.latest:
     - name: {{ salt['pillar.get']('pkgs:salt-minion', 'salt-minion') }}
   service.running:
     - name: {{ salt['pillar.get']('services:salt-minion', 'salt-minion') }}
