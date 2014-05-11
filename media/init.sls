@@ -6,3 +6,4 @@ include:
   - media.gnome
   - media.vidplayer
   - media.solaar
+  - media.pipelight
