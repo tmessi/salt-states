@@ -1,7 +1,7 @@
 pipelight:
   pkgrepo.managed:
     - ppa: pipelight/stable
-  pkg:
+  pkg.installed:
     - name: pipelight-multi
     - require:
       - pkgrepo: pipelight
