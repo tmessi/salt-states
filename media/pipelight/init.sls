@@ -8,6 +8,6 @@ pipelight:
 
 enable_silverlight:
   cmd.wait:
-    - name: pipelight-plugin --enable silverlight
+    - name: pipelight-plugin --enable silverlight --accept
     - watch:
       - pkg: pipelight
