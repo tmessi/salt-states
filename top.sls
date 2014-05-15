@@ -11,6 +11,7 @@ base:
     - ubuntu
   'brego':
     - desktop
+    - systemtools
     - media
   'felarof*':
     - desktop
