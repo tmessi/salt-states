@@ -7,3 +7,4 @@ include:
   - media.vidplayer
   - media.solaar
   - media.pipelight
+  - media.fail2ban
