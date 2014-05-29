@@ -20,6 +20,7 @@ base:
     - systemtools
     - x11progs
     - noip
+    - repos
   'snowmane*':
     - desktop
     - devtools
