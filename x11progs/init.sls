@@ -18,3 +18,13 @@ x11progs:
       - {{ salt['pillar.get']('pkgs:hsetroot', 'hsetroot') }}
       - {{ salt['pillar.get']('pkgs:transset', 'transset') }}
       - {{ salt['pillar.get']('pkgs:spectrwm', 'spectrwm') }}
+
+/etc/spectrwm.conf:
+  file.managed:
+    - source: salt://x11progs/spectrwm.conf
+    - template: jinja
+    - mode: 644
+    - user: root
+    - group: root
+    - require:
+      - pkg: x11progs
