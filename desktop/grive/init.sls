@@ -14,3 +14,9 @@ grive:
     - require_in:
       - pkg: grive
 {% endif %}
+
+sync_grive:
+  cron.present:
+    - name: /home/tim/bin/syncgrive
+    - user: tim
+    - minute: '*/15'
