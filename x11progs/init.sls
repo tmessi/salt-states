@@ -1,7 +1,7 @@
 {% if grains['os'] == 'Gentoo' %}
 spectrwm-flags:
   portage_config.flags:
-    name: {{ salt['pillar.get']('pkgs:spectrwm', 'spectrwm') }}
+    - name: {{ salt['pillar.get']('pkgs:spectrwm', 'spectrwm') }}
     - accept_keywords:
       - ~ARCH
     - require_in:
@@ -9,7 +9,7 @@ spectrwm-flags:
 
 urxvt-flags:
   portage_config.flags:
-    name: {{ salt['pillar.get']('pkgs:rxvt-unicode', 'rxvt-unicode') }}
+    - name: {{ salt['pillar.get']('pkgs:rxvt-unicode', 'rxvt-unicode') }}
     - use:
       - '256-color'
       - 'blink'
