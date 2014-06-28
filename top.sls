@@ -16,6 +16,7 @@ base:
   'felarof*':
     - desktop
     - desktop.monitor
+    - desktop.tools
     - devtools
     - gentools
     - systemtools
@@ -25,6 +26,7 @@ base:
   'lightfoot*':
     - desktop
     - desktop.monitor
+    - desktop.tools
     - devtools
     - gentools
     - systemtools
