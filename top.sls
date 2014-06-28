@@ -30,6 +30,7 @@ base:
     - systemtools
     - x11progs
     - repos
+    - laptop
   'snowmane*':
     - desktop
     - desktop.monitor
