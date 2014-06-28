@@ -26,3 +26,10 @@ conky-flags:
 conky:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:conky', 'conky') }}
+
+hddtemp:
+  service.running:
+    - name: {{ salt['pillar.get']('services:hddtemp', 'hddtemp') }}
+    - enable: True
+    - require:
+      - pkg: conky
