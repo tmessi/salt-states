@@ -5,7 +5,7 @@ include:
 chrome-flags:
   portage_config.flags:
     - name: {{ salt['pillar.get']('pkgs:chrome', 'google-chrome-stable') }}
-    - accpet_keywords:
+    - accept_keywords:
       - ~ARCH
     - require_in:
       - pkg: chrome
