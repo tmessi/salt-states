@@ -1,3 +1,12 @@
+{% if grains['os'] == 'Gentoo' %}
+dfc-flags:
+  portage_config.flags:
+    - name: {{ salt['pillar.get']('pkgs:dfc', 'dfc') }}
+    - accept_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: systemtools
+{% endif %}
 
 systemtools:
   pkg.installed:
