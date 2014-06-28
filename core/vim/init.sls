@@ -10,13 +10,3 @@ vim:
     - require_in:
       - pkg: vim
 {% endif %}
-
-/etc/vim/vimrc.local:
-  file.managed:
-    - source: salt://core/vim/vimrc
-    - user: root
-    - group: root
-    - mode: 644
-    - makedirs: True
-    - require:
-      - pkg: vim
