@@ -21,6 +21,13 @@ base:
     - x11progs
     - noip
     - repos
+  'lightfoot*':
+    - desktop
+    - devtools
+    - gentools
+    - systemtools
+    - x11progs
+    - repos
   'snowmane*':
     - desktop
     - devtools
