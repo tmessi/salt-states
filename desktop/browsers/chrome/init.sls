@@ -1,11 +1,48 @@
 include:
   - desktop.flash
 
+{% if grains['os'] == 'Gentoo' %}
+chrome-flags:
+  portage_config.flags:
+    - name: {{ salt['pillar.get']('pkgs:chrome', 'google-chrome-stable') }}
+    - accpent_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: chrome
+{% endif %}
+
 chrome:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:chrome', 'google-chrome-stable') }}
 
 {% if 'snowmane' != grains['id'] %}
+
+{% if grains['os'] == 'Gentoo' %}
+libxml-flags:
+  portage_config.flags:
+    - name: dev-libs/libxml2
+    - use:
+      - icu
+    - require_in:
+      - pkg: chromium
+
+harfbuzz-flags:
+  portage_config.flags:
+    - name: media-libs/harfbuzz
+    - use:
+      - icu
+    - require_in:
+      - pkg: chromium
+
+zlib-flags:
+  portage_config.flags:
+    - name: sys-libs/zlib
+    - use:
+      - minizip
+    - require_in:
+      - pkg: chromium
+{% endif %}
+
 chromium:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:chromium', 'chromium-browser') }}
