@@ -15,6 +15,7 @@ base:
     - media
   'felarof*':
     - desktop
+    - desktop.monitor
     - devtools
     - gentools
     - systemtools
@@ -23,6 +24,7 @@ base:
     - repos
   'lightfoot*':
     - desktop
+    - desktop.monitor
     - devtools
     - gentools
     - systemtools
@@ -30,6 +32,7 @@ base:
     - repos
   'snowmane*':
     - desktop
+    - desktop.monitor
     - devtools
     - gentools
     - systemtools
