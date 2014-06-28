@@ -6,6 +6,19 @@ spectrwm-flags:
       - ~ARCH
     - require_in:
       - pkg: x11progs
+
+urxvt-flags:
+  portage_config.flags:
+    name: {{ salt['pillar.get']('pkgs:rxvt-unicode', 'rxvt-unicode') }}
+    - use:
+      - '256-color'
+      - 'blink'
+      - 'fading-colors'
+      - 'perl'
+      - '-focused-urgency'
+      - '-vanilla'
+    - require_in:
+      - pkg: x11progs
 {% endif %}
 
 
