@@ -1,3 +1,15 @@
+{% if grains['os'] == 'Gentoo' %}
+googletalk-flags:
+  portage_config.flags:
+    - name: {{ salt['pillar.get']('pkgs:googletalk', 'google-talkplugin') }}
+    - accept_keywords:
+      - ~ARCH
+    - license:
+      - Google-TOS
+    - require_in:
+      - pkg: desktoptools
+{% endif %}
+
 desktoptools:
   pkg.installed:
     - names:
