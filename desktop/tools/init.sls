@@ -16,3 +16,10 @@ desktoptools:
       - {{ salt['pillar.get']('pkgs:feh', 'feh') }}
       - {{ salt['pillar.get']('pkgs:pavucontrol', 'pavucontrol') }}
       - {{ salt['pillar.get']('pkgs:googletalk', 'google-talkplugin') }}
+      - {{ salt['pillar.get']('pkgs:ntp', 'ntp') }}
+
+ntpd:
+  service.running:
+    - enable: True
+    - require:
+      - pkg: desktoptools
