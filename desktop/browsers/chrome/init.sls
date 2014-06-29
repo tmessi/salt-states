@@ -5,7 +5,7 @@ include:
 chrome-flags:
   portage_config.flags:
     - name: {{ salt['pillar.get']('pkgs:chrome', 'google-chrome-stable') }}
-    - accpent_keywords:
+    - accpet_keywords:
       - ~ARCH
     - require_in:
       - pkg: chrome
@@ -15,7 +15,7 @@ chrome:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:chrome', 'google-chrome-stable') }}
 
-{% if 'snowmane' != grains['id'] %}
+{% if 'felarof' in grains['id'] %}
 
 {% if grains['os'] == 'Gentoo' %}
 libxml-flags:
