@@ -1,3 +1,13 @@
+{% if grains['os'] == 'Gentoo' %}
+spectrwm-flags:
+  portage_config.flags:
+    name: {{ salt['pillar.get']('pkgs:spectrwm', 'spectrwm') }}
+    - accept_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: x11progs
+{% endif %}
+
 
 x11progs:
   pkg.installed:
