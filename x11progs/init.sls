@@ -18,6 +18,8 @@ x11progs:
       - {{ salt['pillar.get']('pkgs:hsetroot', 'hsetroot') }}
       - {{ salt['pillar.get']('pkgs:transset', 'transset') }}
       - {{ salt['pillar.get']('pkgs:spectrwm', 'spectrwm') }}
+      - {{ salt['pillar.get']('pkgs:xterm', 'xterm') }}
+      - {{ salt['pillar.get']('pkgs:terminus', 'terminus') }}
 
 /etc/spectrwm.conf:
   file.managed:
