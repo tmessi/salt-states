@@ -76,6 +76,8 @@ python-tools:
   portage_config.flags:
     - names:
       - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
+      - dev-python/py
+      - dev-python/virtualenv
     - accept_keywords:
       - ~ARCH
     - require_in:
