@@ -94,3 +94,8 @@ go:
   pkg.installed:
     - names:
       - {{ salt['pillar.get']('pkgs:go', 'go') }}
+
+services:
+  pkg.installed:
+    - names:
+      - {{ salt['pillar.get']('pkgs:rabbitmq-server', 'rabbitmq-server') }}
