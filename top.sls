@@ -14,29 +14,10 @@ base:
     - systemtools
     - media
   'felarof*':
-    - desktop
-    - desktop.monitor
-    - desktop.tools
-    - devtools
-    - gentools
-    - systemtools
-    - x11progs
+    - dev
     - noip
-    - repos
   'lightfoot*':
-    - desktop
-    - desktop.monitor
-    - desktop.tools
-    - devtools
-    - gentools
-    - systemtools
-    - x11progs
-    - repos
+    - dev
     - laptop
   'snowmane*':
-    - desktop
-    - desktop.monitor
-    - devtools
-    - gentools
-    - systemtools
-    - x11progs
+    - dev
