@@ -73,22 +73,26 @@ python-tools:
       - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
       - {{ salt['pillar.get']('pkgs:pip', 'pip') }}
   {% if grains['os'] == 'Gentoo' %}
+      - {{ salt['pillar.get']('pkgs:django', 'django') }}
+      - {{ salt['pillar.get']('pkgs:pylint', 'pylint') }}
   portage_config.flags:
     - names:
       - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
+      - {{ salt['pillar.get']('pkgs:pylint', 'pylint') }}
       - dev-python/py
       - dev-python/virtualenv
     - accept_keywords:
       - ~ARCH
     - require_in:
       - pkg: python-tools
-  {% endif %}
+  {% else %}
   pip.installed:
     - names:
       - django
       - pylint
     - require:
       - pkg: python-tools
+  {% endif %}
 
 go:
   pkg.installed:
