@@ -80,6 +80,7 @@ python-tools:
       - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
       - {{ salt['pillar.get']('pkgs:pylint', 'pylint') }}
       - dev-python/py
+      - dev-python/astroid
       - dev-python/virtualenv
     - accept_keywords:
       - ~ARCH
