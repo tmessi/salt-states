@@ -8,6 +8,6 @@ machines.
 Usage notes
 -----------
 
-For masterless with ssh-agent::
+For masterless with ssh-agent:
 
     sudo SSH_AUTH_SOCK=$SSH_AUTH_SOCK salt-call state.highstate
