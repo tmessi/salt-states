@@ -104,3 +104,8 @@ services:
   pkg.installed:
     - names:
       - {{ salt['pillar.get']('pkgs:rabbitmq-server', 'rabbitmq-server') }}
+
+ruby-tools:
+  pkg.installed:
+    - names:
+      - {{ salt['pillar.get']('pkgs:rake', 'rake') }}
