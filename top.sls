@@ -21,3 +21,5 @@ base:
     - laptop
   'snowmane*':
     - dev
+  'anduril*':
+    - dev
