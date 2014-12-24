@@ -15,6 +15,9 @@ urxvt-flags:
       - 'blink'
       - 'fading-colors'
       - 'perl'
+      - 'xft'
+      - 'font-styles'
+      - 'unicode3'
       - '-focused-urgency'
       - '-vanilla'
     - require_in:
