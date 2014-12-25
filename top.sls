@@ -23,3 +23,4 @@ base:
     - dev
   'anduril*':
     - dev
+    - laptop
