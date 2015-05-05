@@ -12,6 +12,8 @@
     - source: salt://gentoo/gentoo.conf
     - template: jinja
     - mode: 644
+    - makedirs: True
+    - dir_mode: 755
 
 {% for conf in salt['pillar.get']('makeconf_absent') %}
 {{ conf }}_absent:
