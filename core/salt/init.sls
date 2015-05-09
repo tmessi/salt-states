@@ -1,8 +1,6 @@
 salt-minion:
-  pkg.latest:
+  pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:salt-minion', 'salt-minion') }}
-  service.running:
-    - name: {{ salt['pillar.get']('services:salt-minion', 'salt-minion') }}
 {% if grains['os'] == 'Ubuntu' %}
   pkgrepo.managed:
     - ppa: saltstack/salt

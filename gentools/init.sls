@@ -14,6 +14,8 @@ app-portage/layman:
       - git
       - subversion
       - mercurial
+    - accept_keywords:
+      - ~ARCH
     - require_in:
       - pkg: gentools
 
