@@ -16,9 +16,6 @@ base:
   'felarof*':
     - dev
     - noip
-  'lightfoot*':
-    - dev
-    - laptop
   'snowmane*':
     - dev
   'anduril*':
