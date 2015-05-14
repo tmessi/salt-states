@@ -8,3 +8,4 @@ include:
   - media.solaar
   - media.pipelight
   - media.fail2ban
+  - media.plex
