@@ -36,5 +36,5 @@ plexmediaserver:
     - temaplte: jinja
     - require:
       - pkg: plexmediaserver
-    - watch_inf:
+    - watch_in:
       - service: plexmediaserver
