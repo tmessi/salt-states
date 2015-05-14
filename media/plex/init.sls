@@ -33,7 +33,7 @@ plexmediaserver:
 /etc/default/plexmediaserver:
   file.managed:
     - source: salt://media/plex/plex.default
-    - temaplte: jinja
+    - template: jinja
     - require:
       - pkg: plexmediaserver
     - watch_in:
