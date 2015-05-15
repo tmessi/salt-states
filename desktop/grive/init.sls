@@ -1,18 +1,31 @@
+{% if grains['os'] == 'Gentoo' %}
+include:
+  - devtools
+{% endif %}
+
 grive:
-  pkg.installed:
+  pkg.absent:
     - name: {{ salt['pillar.get']('pkgs:grive', 'grive') }}
 {% if grains['os'] == 'Ubuntu' %}
-  pkgrepo.managed:
+  pkgrepo.absent:
     - ppa: nilarimogard/webupd8
     - require_in:
       - pkg: grive
+{% endif %}
+
+drive:
+{% if grains['os'] == 'Ubuntu' %}
+  pkg.installed:
+    - require:
+      - pkgrepo: drive
+  pkgrepo.managed:
+    - ppa: twodopeshaggy/drive
 {% elif grains['os'] == 'Gentoo' %}
-  portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:grive', 'grive') }}
-    - accept_keywords:
-      - ~ARCH
-    - require_in:
-      - pkg: grive
+  cmd.run:
+    - name: 'go get -u github.com/odeke-em/drive/cmd/drive'
+    - unless: 'test -f /home/tim/go/bin/drive'
+    - require:
+      - pkg: go
 {% endif %}
 
 sync_grive:
