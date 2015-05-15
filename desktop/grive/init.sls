@@ -4,7 +4,7 @@ include:
 {% endif %}
 
 grive:
-  pkg.absent:
+  pkg.purged:
     - name: {{ salt['pillar.get']('pkgs:grive', 'grive') }}
 {% if grains['os'] == 'Ubuntu' %}
   pkgrepo.absent:
@@ -23,6 +23,9 @@ drive:
 {% elif grains['os'] == 'Gentoo' %}
   cmd.run:
     - name: 'go get -u github.com/odeke-em/drive/cmd/drive'
+    - user: tim
+    - env:
+      - GOPATH: /home/tim/go
     - unless: 'test -f /home/tim/go/bin/drive'
     - require:
       - pkg: go
