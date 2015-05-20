@@ -13,8 +13,8 @@ vidplayer:
     - absent
 
 /srv/vidplayer:
-  file.absent:
-    - names:
+  file:
+    - absent
 
 /etc/init/vidplayer.conf:
   file:
