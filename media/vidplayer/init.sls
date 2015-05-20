@@ -1,4 +1,6 @@
 vidplayer:
+  service.stopped:
+    - enable: False
   user.absent:
     - purge: true
 
@@ -21,7 +23,3 @@ vidplayer:
 /etc/init.d/vidplayer:
   file:
     - absent
-
-vidplayer:
-  service.stopped:
-    - enable: False
