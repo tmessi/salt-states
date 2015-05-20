@@ -1,5 +1,5 @@
 vidplayer:
-  service.stopped:
+  service.dead:
     - enable: False
   user.absent:
     - purge: true
