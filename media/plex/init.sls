@@ -41,7 +41,7 @@ plexmediaserver:
     - watch_in:
       - service: plexmediaserver
 
-/etc/nginx/site-available/plex.conf:
+/etc/nginx/sites-available/plex.conf:
   file.managed:
     - source: salt://media/plex/plex.nginx.conf
     - template: jinja
@@ -50,10 +50,10 @@ plexmediaserver:
     - watch_in:
       - service: nginx
 
-/etc/nginx/site-enabled/plex.conf:
+/etc/nginx/sites-enabled/plex.conf:
   file.symlink:
-    - target: /etc/nginx/site-available/plex.conf
+    - target: /etc/nginx/sites-available/plex.conf
     - require:
-      - file: /etc/nginx/site-available/plex.conf
+      - file: /etc/nginx/sites-available/plex.conf
     - watch_in:
       - service: nginx
