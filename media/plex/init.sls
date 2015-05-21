@@ -14,6 +14,7 @@ plexmediaserver:
     - user: plex
     - group: plex
     - mode: 755 
+    - makedirs: True
     - require:
       - pkg: plexmediaserver
     - watch_in:
@@ -26,6 +27,7 @@ plexmediaserver:
     - user: plex
     - group: plex
     - mode: 755 
+    - makedirs: True
     - require:
       - pkg: plexmediaserver
     - watch_in:
