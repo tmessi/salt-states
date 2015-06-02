@@ -37,4 +37,9 @@ if [[ ! -x $update_cmd ]]; then
     exit -1
 fi
 
-$update_cmd > $update_file
+update_count=$($update_cmd)
+if [[ $update_count ]]; then
+    echo -n $update_count > $update_file
+else
+    [[ -f $update_file ]] && rm $update_file
+fi
