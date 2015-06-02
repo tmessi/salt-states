@@ -15,6 +15,12 @@
     - makedirs: True
     - dir_mode: 755
 
+/etc/portage/postsync.d/update_count:
+  file.managed:
+    - source: salt://gentoo/update_count
+    - template: jinja
+    - mode: 755
+
 {% for conf in salt['pillar.get']('makeconf_absent') %}
 {{ conf }}_absent:
   makeconf.absent:

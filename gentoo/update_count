@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#
+name=${0##*/}
+
+function print_help() {
+    echo "usage: $name [options]
+
+optional args:
+
+    -h|--help     print this help."
+}
+
+pretend=0
+OPTS=$(getopt -o h --long help -n "$name" -- "$@")
+
+if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
+
+eval set -- "$OPTS"
+
+while true; do
+    case "$1" in
+        -h|--help)
+            print_help
+            exit 0
+            ;;
+        --)
+            shift; break;;
+        *)
+            echo "Internal error!"; exit 1;;
+    esac
+done
+
+update_cmd="/home/tim/bin/updates.py"
+update_file="/home/tim/.update_count"
+
+if [[ ! -x $update_cmd ]]; then
+    exit -1
+fi
+
+$update_cmd > $update_file
