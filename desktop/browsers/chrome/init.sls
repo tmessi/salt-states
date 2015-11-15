@@ -62,7 +62,7 @@ chrome_ppa:
 chrome_pkgfiles:
   portage_config.flags:
     - name: {{ salt['pillar.get']('pkgs:chrome', 'google-chrome-stable') }}
-    - accpet_keywords:
+    - accept_keywords:
       - ~ARCH
     - license:
       - google-chrome
