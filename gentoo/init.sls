@@ -1,3 +1,6 @@
+include:
+  - gentoo.fonts
+
 {% for conf, values in salt['pillar.get']('makeconf')|dictsort %}
 {% for value in values %}
 {{ conf }}_{{ value }}:
