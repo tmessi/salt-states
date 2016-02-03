@@ -13,7 +13,6 @@ conky-flags:
       - math
       - mpd
       - ncurses
-      - nvidia
       - portmon
       - rss
       - weather-metar

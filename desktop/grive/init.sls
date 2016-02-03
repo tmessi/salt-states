@@ -3,16 +3,6 @@ include:
   - devtools
 {% endif %}
 
-grive:
-  pkg.purged:
-    - name: {{ salt['pillar.get']('pkgs:grive', 'grive') }}
-{% if grains['os'] == 'Ubuntu' %}
-  pkgrepo.absent:
-    - ppa: nilarimogard/webupd8
-    - require_in:
-      - pkg: grive
-{% endif %}
-
 drive:
 {% if grains['os'] == 'Ubuntu' %}
   pkg.installed:
@@ -31,8 +21,8 @@ drive:
       - pkg: go
 {% endif %}
 
-sync_grive:
-  cron.present:
-    - name: /home/tim/bin/syncgrive
-    - user: tim
-    - minute: '*/15'
+# sync_grive:
+#   cron.present:
+#     - name: /home/tim/bin/syncgrive
+#     - user: tim
+#     - minute: '*/15'
