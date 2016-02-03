@@ -15,7 +15,6 @@ base:
     - media
   'felarof*':
     - dev
-    - noip
   'snowmane*':
     - dev
   'anduril*':
