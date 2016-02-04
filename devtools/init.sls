@@ -82,6 +82,9 @@ python-tools:
       - dev-python/py
       - dev-python/astroid
       - dev-python/virtualenv
+      - dev-python/lazy-object-proxy
+      - dev-python/pluggy
+      - dev-python/setuptools
     - accept_keywords:
       - ~ARCH
     - require_in:
