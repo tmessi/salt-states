@@ -15,6 +15,7 @@ base:
     - media
   'felarof*':
     - dev
+    - games
   'snowmane*':
     - dev
   'anduril*':
