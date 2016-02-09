@@ -21,3 +21,10 @@ steam:
     - require_in:
       - pkg: steam
   {% endif %}
+
+/etc/udev/rules.d/99-joystick.rules:
+  file.managed:
+    - source: salt://games/99-joystick.rules
+    - mode: 644
+    - user: root
+    - group: root
