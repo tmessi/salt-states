@@ -17,6 +17,8 @@ desktoptools:
       - {{ salt['pillar.get']('pkgs:pavucontrol', 'pavucontrol') }}
       - {{ salt['pillar.get']('pkgs:googletalk', 'google-talkplugin') }}
       - {{ salt['pillar.get']('pkgs:ntp', 'ntp') }}
+      - {{ salt['pillar.get']('pkgs:gimp', 'gimp') }}
+      - {{ salt['pillar.get']('pkgs:scrot', 'scrot') }}
 
 ntpd:
   service.running:
