@@ -35,6 +35,12 @@ systemtools:
       - {{ salt['pillar.get']('pkgs:lsof', 'lsof') }}
       - {{ salt['pillar.get']('pkgs:ack', 'ack-grep') }}
       - {{ salt['pillar.get']('pkgs:dmidecode', 'dmidecode') }}
+      - {{ salt['pillar.get']('pkgs:7zip', '7zip') }}
+      - {{ salt['pillar.get']('pkgs:rar', 'rar') }}
+      - {{ salt['pillar.get']('pkgs:rpm', 'rpm') }}
+      - {{ salt['pillar.get']('pkgs:bonnie++', 'bonnie++') }}
+      - {{ salt['pillar.get']('pkgs:cdrtools', 'cdrtools') }}
+      - {{ salt['pillar.get']('pkgs:sudo', 'sudo') }}
 
 fstools:
   pkg.installed:
