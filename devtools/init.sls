@@ -112,3 +112,12 @@ ruby-tools:
   pkg.installed:
     - names:
       - {{ salt['pillar.get']('pkgs:rake', 'rake') }}
+
+docker:
+  pkg.installed:
+    - names:
+      - {{ salt['pillar.get']('pkgs:docker', 'docker-engine') }}
+  service.running:
+    - enable: True
+    - require:
+      - pkg: docker
