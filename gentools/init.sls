@@ -8,6 +8,13 @@ gentools:
       - app-portage/layman
       - app-shells/bash-completion
 
+dev-python/ssl-fetch:
+  portage_config.flags:
+    - accept_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: gentools
+
 app-portage/layman:
   portage_config.flags:
     - use:
