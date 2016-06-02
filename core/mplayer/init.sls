@@ -28,3 +28,18 @@ mplayer:
     - require_in:
       - pkg: mplayer
 {% endif %}
+
+mpv:
+  pkg.installed:
+    - name: {{ salt['pillar.get']('pkgs:mpv', 'mpv') }}
+{% if grains['os'] == 'Gentoo' %}
+  portage_config.flags:
+    - name: {{ salt['pillar.get']('pkgs:mpv', 'mpv') }}
+    - use:
+      - libass
+      - bluray
+      - cdda
+      - dvd
+    - require_in:
+      - pkg: mpv
+{% endif %}
