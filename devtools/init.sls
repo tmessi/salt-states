@@ -23,6 +23,34 @@ vagrant:
       - pkg: vagrant
   {% endif %}
 
+consul:
+  pkg.installed:
+    - name: {{ salt['pillar.get']('pkgs:consul', 'consul') }}
+  {% if grains['os'] == 'Gentoo' %}
+  portage_config.flags:
+    - name: {{ salt['pillar.get']('pkgs:consul', 'consul') }}
+    - accept_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: consul
+  {% endif %}
+
+otto:
+  pkg.installed:
+    - name: {{ salt['pillar.get']('pkgs:otto', 'otto') }}
+    - require:
+      - pkg: consul
+      - pkg: vagrant
+  {% if grains['os'] == 'Gentoo' %}
+      - layman: shadowfax-overlay
+  portage_config.flags:
+    - name: {{ salt['pillar.get']('pkgs:otto', 'otto') }}
+    - accept_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: otto
+  {% endif %}
+
 virtualbox:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:virtualbox', 'virtualbox') }}
