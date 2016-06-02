@@ -5,3 +5,4 @@ include:
   - desktop.pithos
   - desktop.grive
   - desktop.gorilla
+  - desktop.fortune
