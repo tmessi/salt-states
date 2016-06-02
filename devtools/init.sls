@@ -100,6 +100,7 @@ python-tools:
       - {{ salt['pillar.get']('pkgs:jedi', 'jedi') }}
       - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
       - {{ salt['pillar.get']('pkgs:pip', 'pip') }}
+      - {{ salt['pillar.get']('pkgs:ipython', 'ipython') }}
   {% if grains['os'] == 'Gentoo' %}
       - {{ salt['pillar.get']('pkgs:django', 'django') }}
       - {{ salt['pillar.get']('pkgs:pylint', 'pylint') }}
