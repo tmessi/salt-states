@@ -19,6 +19,7 @@ desktoptools:
       - {{ salt['pillar.get']('pkgs:ntp', 'ntp') }}
       - {{ salt['pillar.get']('pkgs:gimp', 'gimp') }}
       - {{ salt['pillar.get']('pkgs:scrot', 'scrot') }}
+      - {{ salt['pillar.get']('pkgs:apvlv', 'apvlv') }}
 
 ntpd:
   service.running:
