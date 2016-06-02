@@ -21,3 +21,4 @@ fonts:
       - media-fonts/encodings
       - media-fonts/dejavu
       - media-fonts/corefonts
+      - media-fonts/inconsolata
