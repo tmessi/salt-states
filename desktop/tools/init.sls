@@ -21,6 +21,7 @@ desktoptools:
       - {{ salt['pillar.get']('pkgs:scrot', 'scrot') }}
       - {{ salt['pillar.get']('pkgs:apvlv', 'apvlv') }}
       - media-gfx/gphoto2
+      - net-print/hplip
 
 ntpd:
   service.running:
