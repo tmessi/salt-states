@@ -56,3 +56,14 @@ x11progs:
     - group: root
     - require:
       - pkg: x11progs
+
+{% if xorg.conf in pillar %}
+/etc/X11/xorg.conf:
+  file.managed:
+    - contents_pillar: xorg.conf
+    - user: root
+    - group: root
+    - mode: 644
+    - require:
+      - pkg: x11progs
+{% endif %}
