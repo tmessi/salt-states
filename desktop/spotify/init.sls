@@ -8,15 +8,13 @@ spotify-deps:
       - dev-qt/qtopengl
     - use:
       - qt3support
+    - require_in:
+      - pkg: spotify
 {% endif %}
 
 spotify:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:spotify', 'spotify-client') }}
-  {% if grains['os'] == 'Gentoo' %}
-    - require:
-      - portage_config: spotify-deps
-  {% endif %}
   {% if grains['os'] == 'Ubuntu' %}
   pkgrepo.managed:
     - name: deb http://repository.spotify.com stable non-free

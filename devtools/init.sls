@@ -23,6 +23,21 @@ vagrant:
       - pkg: vagrant
   {% endif %}
 
+{% if grains['os'] == 'Gentoo' %}
+consul-deps:
+  portage_config.flags:
+    - names:
+      - dev-go/go-text
+      - dev-go/go-tools
+      - dev-go/go-sys
+      - dev-go/go-net
+      - dev-go/go-crypto
+    - accept_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: consul
+{% endif %}
+
 consul:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:consul', 'consul') }}

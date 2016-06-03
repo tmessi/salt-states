@@ -1,3 +1,12 @@
+{% if grains['os'] == 'Gentoo' %}
+media-plugins/gst-plugins-meta:
+  portage_config.flags:
+    - use:
+      - http
+    - require_in:
+      - pkg: pithos
+{% endif %}
+
 pithos:
   pkg.installed:
     - name: {{ salt['pillar.get']('pkgs:pithos', 'pithos') }}
@@ -9,4 +18,3 @@ pithos:
     - require_in:
       - pkg: pithos
   {% endif %}
-
