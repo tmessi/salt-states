@@ -39,7 +39,7 @@ x11progs:
     - require:
       - pkg: x11progs
 
-{% if xorg.conf in pillar %}
+{% if 'xorg.conf' in pillar %}
 /etc/X11/xorg.conf:
   file.managed:
     - contents_pillar: xorg.conf
