@@ -10,6 +10,14 @@ spotify-deps:
       - qt3support
     - require_in:
       - pkg: spotify
+
+libxml2:
+  portage_config.flags:
+    - name: dev-libs/libxml2
+    - use:
+      - python
+    - require_in:
+      - pkg: spotify
 {% endif %}
 
 spotify:

@@ -8,6 +8,14 @@ googletalk-flags:
       - Google-TOS
     - require_in:
       - pkg: desktoptools
+
+poppler:
+  portage_config.flags:
+    - name: app-text/poppler
+    - use:
+      - cairo
+    - require_in:
+      - pkg: desktoptools
 {% endif %}
 
 desktoptools:
