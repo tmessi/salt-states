@@ -157,11 +157,17 @@ ruby-tools:
     - names:
       - {{ salt['pillar.get']('pkgs:rake', 'rake') }}
 
+{% if grains['os'] == 'Gentoo' %}
+libseccomp:
+  portage_config.flags:
+    - name: sys-libs/libseccomp
+    - use:
+      - static-libs
+    - require_in:
+      - pkg: docker
+{% endif %}
+
 docker:
   pkg.installed:
     - names:
       - {{ salt['pillar.get']('pkgs:docker', 'docker-engine') }}
-  service.running:
-    - enable: True
-    - require:
-      - pkg: docker
