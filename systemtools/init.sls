@@ -1,52 +1,50 @@
-{% if grains['os'] == 'Gentoo' %}
 dfc-flags:
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:dfc', 'dfc') }}
+    - name: sys-fs/dfc
     - accept_keywords:
       - ~ARCH
     - require_in:
       - pkg: systemtools
-{% endif %}
 
 systemtools:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:screen', 'screen') }}
-      - {{ salt['pillar.get']('pkgs:tmux', 'tmux') }}
-      - {{ salt['pillar.get']('pkgs:dos2unix', 'dos2unix') }}
-      - {{ salt['pillar.get']('pkgs:tree', 'tree') }}
-      - {{ salt['pillar.get']('pkgs:strace', 'strace') }}
-      - {{ salt['pillar.get']('pkgs:iftop', 'iftop') }}
-      - {{ salt['pillar.get']('pkgs:netcat', 'netcat') }}
-      - {{ salt['pillar.get']('pkgs:nmap', 'nmap') }}
-      - {{ salt['pillar.get']('pkgs:tcpdump', 'tcpdump') }}
-      - {{ salt['pillar.get']('pkgs:bwm-ng', 'bwm-ng') }}
-      - {{ salt['pillar.get']('pkgs:iptables', 'iptables') }}
-      - {{ salt['pillar.get']('pkgs:bridge-utils', 'bridge-utils') }}
-      - {{ salt['pillar.get']('pkgs:stunnel', 'stunnel') }}
-      - {{ salt['pillar.get']('pkgs:lshw', 'lshw') }}
-      - {{ salt['pillar.get']('pkgs:pciutils', 'pciutils') }}
-      - {{ salt['pillar.get']('pkgs:usbutils', 'usbutils') }}
-      - {{ salt['pillar.get']('pkgs:usermode-utilities', 'uml-utilities') }}
-      - {{ salt['pillar.get']('pkgs:bc', 'bc') }}
-      - {{ salt['pillar.get']('pkgs:dfc', 'dfc') }}
-      - {{ salt['pillar.get']('pkgs:lsscsi', 'lsscsi') }}
-      - {{ salt['pillar.get']('pkgs:iotop', 'iotop') }}
-      - {{ salt['pillar.get']('pkgs:lsof', 'lsof') }}
-      - {{ salt['pillar.get']('pkgs:ack', 'ack-grep') }}
-      - {{ salt['pillar.get']('pkgs:dmidecode', 'dmidecode') }}
-      - {{ salt['pillar.get']('pkgs:7zip', '7zip') }}
-      - {{ salt['pillar.get']('pkgs:rar', 'rar') }}
-      - {{ salt['pillar.get']('pkgs:rpm', 'rpm') }}
-      - {{ salt['pillar.get']('pkgs:bonnie++', 'bonnie++') }}
-      - {{ salt['pillar.get']('pkgs:cdrtools', 'cdrtools') }}
-      - {{ salt['pillar.get']('pkgs:sudo', 'sudo') }}
+      - app-misc/screen
+      - app-misc/tmux
+      - app-text/dos2unix
+      - app-text/tree
+      - dev-util/strace
+      - net-analyzer/iftop
+      - net-analyzer/netcat
+      - net-analyzer/nmap
+      - net-analyzer/tcpdump
+      - net-analyzer/bwm-ng
+      - net-firewall/iptables
+      - net-misc/bridge-utils
+      - net-misc/stunnel
+      - sys-apps/lshw
+      - sys-apps/pciutils
+      - sys-apps/usbutils
+      - sys-apps/usermode-utilities
+      - sys-devel/bc
+      - sys-fs/dfc
+      - sys-fs/lsscsi
+      - sys-process/iotop
+      - sys-process/lsof
+      - sys-apps/ack
+      - sys-apps/dmidecode
+      - app-arch/p7zip
+      - app-arch/rar
+      - app-arch/rpm
+      - app-benchmarks/bonnie++
+      - app-cdr/cdrtools
+      - app-admin/sudo
 
 fstools:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:dosfstools', 'dosfstools') }}
-      - {{ salt['pillar.get']('pkgs:mtpfs', 'mtpfs') }}
-      - {{ salt['pillar.get']('pkgs:ntfs3g', 'ntfs-3g') }}
-      - {{ salt['pillar.get']('pkgs:sysfsutils', 'sysfsutils') }}
-      - {{ salt['pillar.get']('pkgs:xfsprogs', 'xfsprogs') }}
+      - sys-fs/dosfstools
+      - sys-fs/mtpfs
+      - sys-fs/ntfs3g
+      - sys-fs/xfsprogs
+      - sys-fs/sysfsutils

@@ -1,7 +1,6 @@
-{% if grains['os'] == 'Gentoo' %}
 googletalk-flags:
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:googletalk', 'google-talkplugin') }}
+    - name: www-plugins/google-talkplugin
     - accept_keywords:
       - '**'
     - license:
@@ -16,18 +15,17 @@ poppler:
       - cairo
     - require_in:
       - pkg: desktoptools
-{% endif %}
 
 desktoptools:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:feh', 'feh') }}
-      - {{ salt['pillar.get']('pkgs:pavucontrol', 'pavucontrol') }}
-      - {{ salt['pillar.get']('pkgs:googletalk', 'google-talkplugin') }}
-      - {{ salt['pillar.get']('pkgs:ntp', 'ntp') }}
-      - {{ salt['pillar.get']('pkgs:gimp', 'gimp') }}
-      - {{ salt['pillar.get']('pkgs:scrot', 'scrot') }}
-      - {{ salt['pillar.get']('pkgs:apvlv', 'apvlv') }}
+      - media-gfx/feh
+      - media-sound/pavucontrol
+      - www-plugins/google-talkplugin
+      - net-misc/ntp
+      - media-gfx/gimp
+      - media-gfx/scrot
+      - app-text/apvlv
       - media-gfx/gphoto2
       - net-print/hplip
 

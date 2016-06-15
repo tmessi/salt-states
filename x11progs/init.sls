@@ -1,7 +1,6 @@
-{% if grains['os'] == 'Gentoo' %}
 spectrwm-flags:
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:spectrwm', 'spectrwm') }}
+    - name: x11-wm/spectrwm
     - accept_keywords:
       - ~ARCH
     - require_in:
@@ -9,7 +8,7 @@ spectrwm-flags:
 
 urxvt-flags:
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:rxvt-unicode', 'rxvt-unicode') }}
+    - name: x11-terms/rxvt-unicode
     - use:
       - '256-color'
       - 'blink'
@@ -22,12 +21,30 @@ urxvt-flags:
       - '-vanilla'
     - require_in:
       - pkg: x11progs
-{% endif %}
-
 
 x11progs:
   pkg.installed:
-    - names: {{ salt['pillar.get']('pkgs:x11progs') }}
+    - names:
+      - x11-apps/xev
+      - x11-apps/xfontsel
+      - x11-apps/xrandr
+      - x11-base/xorg-server
+      - x11-misc/dmenu
+      - x11-misc/dzen
+      - x11-misc/xautolock
+      - x11-misc/xbindkeys
+      - x11-misc/xclip
+      - x11-misc/xcompmgr
+      - x11-misc/xlockmore
+      - x11-terms/rxvt-unicode
+      - x11-misc/urxvt-perls
+      - x11-misc/hsetroot
+      - x11-apps/transset
+      - x11-wm/spectrwm
+      - x11-terms/xterm
+      - x11-apps/mesa-progs
+      - x11-misc/read-edid
+      - x11-themes/vanilla-dmz-xcursors
 
 /etc/spectrwm.conf:
   file.managed:

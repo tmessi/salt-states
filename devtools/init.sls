@@ -1,29 +1,25 @@
-{% if grains['os'] == 'Gentoo' %}
 include:
   - gentools
-{% endif %}
 
 vcs:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:mercurial', 'mercurial') }}
-      - {{ salt['pillar.get']('pkgs:git', 'git') }}
+      - dev-vcs/mercurial
+      - dev-vcs/git
 
 vagrant:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:vagrant', 'vagrant') }}
-  {% if grains['os'] == 'Gentoo' %}
+    - name: app-emulation/vagrant-bin
     - require:
       - layman: shadowfax-overlay
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:vagrant', 'vagrant') }}
+    - name: app-emulation/vagrant-bin
     - accept_keywords:
       - ~ARCH
     - require_in:
       - pkg: vagrant
-  {% endif %}
 
-{% if grains['os'] == 'Gentoo' %}
+
 consul-deps:
   portage_config.flags:
     - names:
@@ -36,44 +32,40 @@ consul-deps:
       - ~ARCH
     - require_in:
       - pkg: consul
-{% endif %}
 
 consul:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:consul', 'consul') }}
-  {% if grains['os'] == 'Gentoo' %}
+    - name: app-admin/consul
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:consul', 'consul') }}
+    - name: app-admin/consul
     - accept_keywords:
       - ~ARCH
     - require_in:
       - pkg: consul
-  {% endif %}
+
 
 otto:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:otto', 'otto') }}
+    - name: app-misc/otto-bin
     - require:
       - pkg: consul
       - pkg: vagrant
-  {% if grains['os'] == 'Gentoo' %}
       - layman: shadowfax-overlay
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:otto', 'otto') }}
+    - name: app-misc/otto-bin
     - accept_keywords:
       - ~ARCH
     - require_in:
       - pkg: otto
-  {% endif %}
+
 
 virtualbox:
   pkg.installed:
-    - name: {{ salt['pillar.get']('pkgs:virtualbox', 'virtualbox') }}
+    - name: app-emulation/virtualbox
     - require_in:
       - pkg: vagrant
-{% if grains['os'] == 'Gentoo' %}
   portage_config.flags:
-    - name: {{ salt['pillar.get']('pkgs:virtualbox', 'virtualbox') }}
+    - name: app-emulation/virtualbox
     - accept_keywords:
       - ~ARCH
     - use:
@@ -104,25 +96,24 @@ virutalbox-licenses:
       - PUEL
     - require_in:
       - pkg: virtualbox
-{% endif %}
+
 
 python-tools:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:flake8', 'flake8') }}
-      - {{ salt['pillar.get']('pkgs:pep8', 'pep8') }}
-      - {{ salt['pillar.get']('pkgs:virtualenv', 'virtualenv') }}
-      - {{ salt['pillar.get']('pkgs:jedi', 'jedi') }}
-      - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
-      - {{ salt['pillar.get']('pkgs:pip', 'pip') }}
-      - {{ salt['pillar.get']('pkgs:ipython', 'ipython') }}
-  {% if grains['os'] == 'Gentoo' %}
-      - {{ salt['pillar.get']('pkgs:django', 'django') }}
-      - {{ salt['pillar.get']('pkgs:pylint', 'pylint') }}
+      - dev-python/flake8
+      - dev-python/pep8
+      - dev-python/virtualenv
+      - dev-python/jedi
+      - dev-python/tox
+      - dev-python/pip
+      - dev-python/ipython
+      - dev-python/django
+      - dev-python/pylint
   portage_config.flags:
     - names:
-      - {{ salt['pillar.get']('pkgs:tox', 'tox') }}
-      - {{ salt['pillar.get']('pkgs:pylint', 'pylint') }}
+      - dev-python/tox
+      - dev-python/pylint
       - dev-python/py
       - dev-python/astroid
       - dev-python/virtualenv
@@ -133,31 +124,28 @@ python-tools:
       - ~ARCH
     - require_in:
       - pkg: python-tools
-  {% else %}
   pip.installed:
     - names:
       - django
       - pylint
     - require:
       - pkg: python-tools
-  {% endif %}
 
 go:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:go', 'go') }}
+      - dev-lang/go
 
 services:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:rabbitmq-server', 'rabbitmq-server') }}
+      - net-misc/rabbitmq-server
 
 ruby-tools:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:rake', 'rake') }}
+      - dev-ruby/rake
 
-{% if grains['os'] == 'Gentoo' %}
 libseccomp:
   portage_config.flags:
     - name: sys-libs/libseccomp
@@ -165,9 +153,8 @@ libseccomp:
       - static-libs
     - require_in:
       - pkg: docker
-{% endif %}
 
 docker:
   pkg.installed:
     - names:
-      - {{ salt['pillar.get']('pkgs:docker', 'docker-engine') }}
+      - app-emulation/docker
