@@ -21,3 +21,6 @@ base:
   'anduril*':
     - dev
     - laptop
+  'glamdring*':
+    - dev
+    - laptop
