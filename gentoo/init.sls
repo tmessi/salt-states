@@ -1,5 +1,6 @@
 include:
   - gentoo.fonts
+  - gentools
 
 {% for conf, values in salt['pillar.get']('makeconf')|dictsort %}
 {% for value in values %}

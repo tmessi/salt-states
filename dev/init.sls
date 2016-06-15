@@ -6,6 +6,3 @@ include:
   - systemtools
   - x11progs
   - repos
-{% if grains['os'] == 'Gentoo' %}
-  - gentools
-{% endif %}

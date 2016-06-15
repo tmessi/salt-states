@@ -1,4 +1,3 @@
-
 gentools:
   pkg.installed:
     - names:
