@@ -46,11 +46,11 @@ consul:
 
 packer:
   pkg.installed:
-    - name: app-misc/packer-bin
+    - name: app-emulation/packer-bin
     - require:
       - layman: shadowfax-overlay
   portage_config.flags:
-    - name: app-misc/packer-bin
+    - name: app-emulation/packer-bin
     - accept_keywords:
       - ~ARCH
     - require_in:
