@@ -44,11 +44,25 @@ consul:
       - pkg: consul
 
 
+packer:
+  pkg.installed:
+    - name: app-misc/packer-bin
+    - require:
+      - layman: shadowfax-overlay
+  portage_config.flags:
+    - name: app-misc/packer-bin
+    - accept_keywords:
+      - ~ARCH
+    - require_in:
+      - pkg: packer
+
+
 otto:
   pkg.installed:
     - name: app-misc/otto-bin
     - require:
       - pkg: consul
+      - pkg: packer
       - pkg: vagrant
       - layman: shadowfax-overlay
   portage_config.flags:
