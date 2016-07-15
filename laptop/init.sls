@@ -9,3 +9,7 @@ laptop-mode-tools:
 acpitool:
   pkg.installed:
     - name: sys-power/acpitool
+
+xbacklight:
+  pkg.installed:
+    - name: x11-apps/xbacklight
